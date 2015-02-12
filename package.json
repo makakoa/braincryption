@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fontkit": "^1.0.2"
+    "fontkit": "^1.0.2",
+    "opentype": "^0.1.2",
+    "opentype.js": "^0.4.4"
   }
 }
