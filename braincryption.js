@@ -5,12 +5,13 @@ var fs = require('fs');
 var v1;
 var v2;
 
-opentype.load('crypt1.ttf', function(err, font) {
+opentype.load('STYLLO.TTF', function(err, font) {
   v1 = font;
 opentype.load('crypt2.ttf', function(err, font) {
   v2 = font;
 var alphfreq = 'etaoinshrdlcumwfgypbvkjxqz';
 
+  console.log(v1);
 for(var i = 0; i < 1; i++) {
   var temp = v1;
   var letters1 = alphfreq.slice(i);
