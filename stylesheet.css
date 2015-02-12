@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'crypt1';
+  src: url('crypt1.ttf') format("truetype");
+  font-family: 'crypt2';
+  src: url('crypt2.ttf') format("truetype");
+}
+* { font-family: 'crypt2'}
