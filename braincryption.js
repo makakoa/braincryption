@@ -1,32 +1,39 @@
 var fontkit = require('fontkit');
+var opentype = require('opentype.js');
 var fs = require('fs');
 
-var v1 = fontkit.openSync('crypt1.ttf');
-var v2 = fontkit.openSync('crypt2.ttf');
-console.log(v1);
+var v1;
+var v2;
+
+opentype.load('crypt1.ttf', function(err, font) {
+  v1 = font;
+opentype.load('crypt2.ttf', function(err, font) {
+  v2 = font;
 var alphfreq = 'etaoinshrdlcumwfgypbvkjxqz';
 
-var generateFontLibrary = function() {
-  //for(var i = 0; i < 26; i++) {
-    var i = 11;
-    var font = v1.createSubset();
+for(var i = 0; i < 1; i++) {
+  var temp = v1;
+  var letters1 = alphfreq.slice(i);
+  var letters2 = alphfreq.slice(0, i);
 
-    var letters1 = alphfreq.slice(i);
-    var letters2 = alphfreq.slice(0, i);
-    
-    var glyphs1 = v1.glyphsForString(letters1);
-    var glyphs2 = v2.glyphsForString(letters2);
-    glyphs1.forEach(function(glyph) {
-      font.includeGlyph(glyph);
-    });
-    glyphs2.forEach(function(glyph) {
-      font.includeGlyph(glyph);
-    });
-    //font.encodeStream().pipe(fs.createWriteStream('./font_lib/crypt' + (i + 1) + '.ttf'));
-  //}
-};
+  var glyphs1 = v1.stringToGlyphs(letters1);
+  var glyphs2 = v2.stringToGlyphs(letters2);
+  temp.glyphs = glyphs1.concat(glyphs2);
+  var stream = fs.createWriteStream('./font_lib/crypt' + (i + 1) + '.ttf');
+  stream.write(temp);
+}
+});
+});
 
-generateFontLibrary();
+  /*glyphs1.forEach(function(glyph) {
+    font.includeGlyph(glyph);
+  });
+  glyphs2.forEach(function(glyph) {
+    font.includeGlyph(glyph);
+  });
+  font.encodeStream().pipe(fs.createWriteStream('./font_lib/crypt' + (i + 1) + '.ttf'));*/
+//var v1 = fontkit.openSync('crypt1.ttf');
+//var v2 = fontkit.openSync('crypt2.ttf');
 
 
 
