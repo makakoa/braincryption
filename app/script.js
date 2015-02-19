@@ -22,12 +22,41 @@ opentype.load('fonts/crypt3.ttf', function(err, font) {
   console.log('Loaded version 3');
 });
 
+var renderFont = function() {
+  var i = intensity;
+  var letters1 = alphfreq.slice(i);
+  var letters2 = alphfreq.slice(0, i);
+  var glyphs = [];
+
+  if (letters1) {
+    console.log('Adding version 1 glyphs');
+    v1.stringToGlyphs(letters1).forEach(function(glyph) {
+      console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
+      glyph.font = base;
+      //base.glyphs[glyph.index] = glyph;
+      glyphs.push(glyph);
+    });
+  }
+  if (letters2) {
+    console.log('Adding version 2 glyphs');
+    v2.stringToGlyphs(letters2).forEach(function(glyph) {
+      console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
+      glyph.font = base;
+      //base.glyphs[glyph.index] = glyph;
+      glyphs.push(glyph);
+    });
+  }
+  glyphs.forEach(function(glyph) {
+    base.glyphs[glyph.index] = glyph;
+  });
+};
 
 $(document).ready(function() {
 
   var intensitySlider = document.getElementById('intensity');
   var changeIntensity = function() {
     intensity = intensitySlider.value;
+    renderFont();
     console.log('Intensity set to ' + intensity);
   };
   intensitySlider.addEventListener('input', changeIntensity, false);
@@ -36,33 +65,7 @@ $(document).ready(function() {
   $('#input').text(lorem);
   $('#braincrypt').click(function() {
     training = true;
-    var i = intensity;
-    var letters1 = alphfreq.slice(i);
-    var letters2 = alphfreq.slice(0, i);
-    var glyphs = [];
-
-    if (letters1) {
-      console.log('Adding version 1 glyphs');
-      v1.stringToGlyphs(letters1).forEach(function(glyph) {
-        console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
-        glyph.font = base;
-        //base.glyphs[glyph.index] = glyph;
-        glyphs.push(glyph);
-      });
-    }
-    if (letters2) {
-      console.log('Adding version 2 glyphs');
-      v2.stringToGlyphs(letters2).forEach(function(glyph) {
-        console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
-        glyph.font = base;
-        //base.glyphs[glyph.index] = glyph;
-        glyphs.push(glyph);
-      });
-    }
-    glyphs.forEach(function(glyph) {
-      base.glyphs[glyph.index] = glyph;
-    });
-
+    renderFont();
     var text = $('#input').val();
     console.log('Drawing ' + text);
     var canvas = document.getElementById('text').getContext('2d');
@@ -72,7 +75,7 @@ $(document).ready(function() {
       if (n == textarray.length || training == false) return;
       canvas.clearRect(0, 0, 500, 500);
       console.log('printing ' + textarray[n]);
-      if(textarray[n]) base.draw(canvas, textarray[n], 0, 100, 48);
+      if(textarray[n]) base.draw(canvas, textarray[n], 0, 100, 72);
       train(textarray, ++n)
       }, speed);
     }
