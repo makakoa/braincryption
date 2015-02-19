@@ -7,13 +7,13 @@
 * { font-family: 'crypt1'}
 
 #input {
-  height: 80vh;
-  width: 40%;
+  height: 200px;
+  width: 100%;
   display: inline-block;
 }
 
 #text {
-  display: inline-block;
-  width: 50%;
-  height: 90%;
+  display: block;
+  width: 500px;
+  height: 200px;
 }
