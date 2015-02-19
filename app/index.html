@@ -2,14 +2,15 @@
 <html lang='en'>
 <head>
   <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-  <script src="./bower_components/opentype.js/dist/opentype.js"></script>
+  <script src='./bower_components/opentype.js/dist/opentype.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='script.js'></script>
 </head>
 <body>
+  <canvas id='text'></canvas>
   <textarea id='input'></textarea>
   <button id='braincrypt'>Braincrypt</button>
   <button id='stop'>Stop</button>
-  <canvas id='text'></canvas>
+  <label>Intensity<input type='range' min='1' max='26' step='1' value='1' id='intensity' autocomplete='off'></label>
 </body>
 </html>
