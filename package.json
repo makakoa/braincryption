@@ -4,6 +4,7 @@
   "description": "font based encryption",
   "main": "server.js",
   "scripts": {
+    "postinstall": "bower install",
     "start": "node server.js"
   },
   "author": "",
