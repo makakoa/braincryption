@@ -10,18 +10,22 @@ var base, v1, v2, v3;
 opentype.load('fonts/crypt1.ttf', function(err, font) {
   base = font;
   console.log('Loaded base');
+  console.log('Length: ' + font.glyphs.length);
 });
 opentype.load('fonts/crypt1.ttf', function(err, font) {
   v1 = font;
   console.log('Loaded version 1');
+  console.log('Length: ' + font.glyphs.length);
 });
 opentype.load('fonts/crypt2.ttf', function(err, font) {
   v2 = font;
   console.log('Loaded version 2');
+  console.log('Length: ' + font.glyphs.length);
 });
 opentype.load('fonts/crypt3.ttf', function(err, font) {
   v3 = font;
   console.log('Loaded version 3');
+  console.log('Length: ' + font.glyphs.length);
 });
 
 var renderFont = function() {
@@ -33,19 +37,19 @@ var renderFont = function() {
   if (letters1) {
     console.log('Adding version 1 glyphs');
     v1.stringToGlyphs(letters1).forEach(function(glyph) {
-      console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
+      console.log('Substituting[1]: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
       glyph.font = base;
-      //base.glyphs[glyph.index] = glyph;
-      glyphs.push(glyph);
+      base.glyphs[glyph.index] = glyph;
+      //glyphs.push(glyph);
     });
   }
   if (letters2) {
     console.log('Adding version 2 glyphs');
     v2.stringToGlyphs(letters2).forEach(function(glyph) {
-      console.log('Substituting: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
+      console.log('Substituting[2]: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index+2].unicode);
       glyph.font = base;
-      //base.glyphs[glyph.index] = glyph;
-      glyphs.push(glyph);
+      base.glyphs[glyph.index+2] = glyph;
+      //glyphs.push(glyph);
     });
   }
   glyphs.forEach(function(glyph) {
