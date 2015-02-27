@@ -31,31 +31,42 @@ opentype.load('fonts/crypt3.ttf', function(err, font) {
 
 var renderFont = function() {
   var i = intensity;
-  var letters1 = alphfreq.slice(i);
-  var letters2 = alphfreq.slice(0, i);
+  if(i < 26) {
+    var letters1 = alphfreq.slice(i%26);
+    var letters2 = alphfreq.slice(0, i%26);
+  } else {
+    var letters3 = alphfreq.slice(i%26);
+    var letters2 = alphfreq.slice(0, i%26);
+  }
   var glyphs = [];
 
   if (letters1) {
-    console.log('Adding version 1 glyphs');
+    console.log('Adding one glyphs:' + letters1.length);
     v1.stringToGlyphs(letters1).forEach(function(glyph) {
       console.log('Substituting[1]: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index].unicode);
       glyph.font = base;
       base.glyphs[glyph.index] = glyph;
-      //glyphs.push(glyph);
     });
   }
+
   if (letters2) {
-    console.log('Adding version 2 glyphs');
+    console.log('Adding two glyphs' + letters2.length);
     v2.stringToGlyphs(letters2).forEach(function(glyph) {
       console.log('Substituting[2]: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index+2].unicode);
       glyph.font = base;
       base.glyphs[glyph.index+2] = glyph;
-      //glyphs.push(glyph);
     });
   }
-  glyphs.forEach(function(glyph) {
-    base.glyphs[glyph.index] = glyph;
-  });
+
+  if (letters3) {
+    console.log('Adding three glyphs' + letters3.length);
+    v3.stringToGlyphs(letters3).forEach(function(glyph) {
+      console.log('Substituting[3]: ' + glyph.unicode + ' for ' + base.glyphs[glyph.index+2].unicode);
+      glyph.font = base;
+      base.glyphs[glyph.index+2] = glyph;
+    });
+  }
+
 };
 
 $(document).ready(function() {
@@ -77,7 +88,7 @@ $(document).ready(function() {
   speedSlider.addEventListener('input', changeSpeed, false);
   speedSlider.addEventListener('change', changeSpeed, false);
 
-  $('#input').text(lorem);
+  $('#input').text(about);
 
   $('#about').click(function() {
     $('#input').text(about);

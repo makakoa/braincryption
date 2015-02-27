@@ -4,7 +4,7 @@
   font-family: 'crypt2';
   src: url('crypt2.ttf') format("truetype");
 }
-* { font-family: 'crypt1'}
+* {font-family: 'crypt1'}
 
 #input {
   height: 200px;
@@ -14,6 +14,7 @@
 
 #text {
   display: block;
-  width: 800px;
-  height: 200px;
+  margin-left: 50px;
+  width: 600px;
+  height: 300px;
 }
