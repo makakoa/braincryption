@@ -7,12 +7,47 @@ var training = false;
 var speed = 300;
 var base, v1, v2, v3;
 
+// individual glyph canvas construction
+var createGlyphCanvas = function(version, glyph, size) {
+  var canvasId, html, wrap, glyphsDiv, canvas, ctx;
+  canvasId = 'v' + version + 'c' + glyph.index;
+  html = '<div class="wrapper" style="width:' + size + 'px"><canvas id ="' + canvasId + '" width="' + size + '" height="' + size + '"></canvas><span></span></div>';
+  glyphsDiv = document.getElementById('glyphs');
+  wrap = document.createElement('div');
+  wrap.innerHTML = html;
+  glyphsDiv.appendChild(wrap);
+  canvas = document.getElementById(canvasId);
+  ctx = canvas.getContext('2d');
+  //enableHighDPICanvas(canvas, ctx);
+  return ctx;
+};
+
+// rendering of the glyph grid
+var renderGrid = function(version, font) {
+  var glyphsDiv, x, y, amount, fontSize, ctx;
+  glyphsDiv = document.getElementById('glyphs');
+  glyphsDiv.innerHTML = '';
+  amount = font.glyphs.length;
+  x = 25;
+  y = 50;
+  fontSize = 72;
+  font.glyphs.forEach(function(glyph, index) {
+    if(glyph.index > 31) {
+      ctx = createGlyphCanvas(version, glyph, 75);
+      ctx.clearRect(0, 0, 20, 20); // clear previous word
+      glyph.draw(ctx, x, y, fontSize);
+      //glyph.drawPoints(ctx, x, y, fontSize);
+      //glyph.drawMetrics(ctx, x, y, fontSize);
+    }
+  });
+};
+
 // async loading of font versions
 opentype.load('fonts/crypt1.ttf', function(err, font) {
   base = font;
   console.log('Loaded base');
   console.log('Length: ' + font.glyphs.length);
-  // TODO: add glyphs index rendering *current
+  renderGrid('X', font);
 });
 opentype.load('fonts/crypt1.ttf', function(err, font) {
   v1 = font;
@@ -71,6 +106,8 @@ var renderFont = function() {
       base.glyphs[glyph.index+2] = glyph;
     });
   }
+
+  renderGrid('X', base);
 };
 
 $(document).ready(function() {

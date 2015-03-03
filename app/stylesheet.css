@@ -18,3 +18,9 @@
   width: 600px;
   height: 300px;
 }
+
+#glyphs div {
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px dashed #dbdbdb;
+}
