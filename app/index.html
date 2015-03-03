@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
   <script src='./bower_components/opentype.js/dist/opentype.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='script.js'></script>
 </head>
 <body>
-  <canvas id='text'></canvas>
-  <button id='about'>About text</button>
-  <label>Intensity<input type='range' min='0' max='52' step='1' value='0' id='intensity' autocomplete='off'></label>
-  <button id='auto'>Auto</button>
-  <button id='download'>Download</button>
-  <label>Speed<input type='range' min='0' max='800' step='1' value='400' id='speed' autocomplete='off'></label>
+  <div id='left'>
+    <canvas id='text'></canvas>
+    <button class='btn btn-primary' id='about'>About</button>
+    <label>Intensity<input type='range' min='0' max='52' step='1' value='0' id='intensity' autocomplete='off'></label>
+    <button id='auto'>Auto</button>
+    <label>Speed<input type='range' min='0' max='800' step='1' value='400' id='speed' autocomplete='off'></label>
+    <button class='btn btn-success' id='braincrypt'>Braincrypt</button>
+    <button class='btn btn-danger' id='stop'>Stop</button>
+  </div>
+  <div id='right'>
+    <div id='glyphs'></div>
+    <button id='download'>Download</button>
+  </div>
   <textarea id='input'></textarea>
-  <button id='braincrypt'>Braincrypt</button>
-  <button id='stop'>Stop</button>
-  <div id='glyphs'></div>
 </body>
 </html>
