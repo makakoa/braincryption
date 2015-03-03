@@ -28,17 +28,16 @@ var renderGrid = function(version, font) {
   glyphsDiv = document.getElementById('glyphs');
   glyphsDiv.innerHTML = '';
   amount = font.glyphs.length;
-  x = 50;
-  y = 120;
-  fontSize = 144;
-  console.log(amount);
+  x = 10;
+  y = 50;
+  fontSize = 72;
   font.glyphs.forEach(function(glyph, index) {
     if(glyph.index > 31) {
-      ctx = createGlyphCanvas(version, glyph, 150);
-      ctx.clearRect(0, 0, 150, 150); // clear previous word
+      ctx = createGlyphCanvas(version, glyph, 75);
+      ctx.clearRect(0, 0, 20, 20); // clear previous word
       glyph.draw(ctx, x, y, fontSize);
-      glyph.drawPoints(ctx, x, y, fontSize);
-      glyph.drawMetrics(ctx, x, y, fontSize);
+      //glyph.drawPoints(ctx, x, y, fontSize);
+      //glyph.drawMetrics(ctx, x, y, fontSize);
     }
   });
 };
