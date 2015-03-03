@@ -28,7 +28,7 @@ var renderGrid = function(version, font) {
   glyphsDiv = document.getElementById('glyphs');
   glyphsDiv.innerHTML = '';
   amount = font.glyphs.length;
-  x = 10;
+  x = 25;
   y = 50;
   fontSize = 72;
   font.glyphs.forEach(function(glyph, index) {

@@ -22,4 +22,5 @@
 #glyphs div {
   display: inline-block;
   white-space: nowrap;
+  border: 1px dashed #dbdbdb;
 }
