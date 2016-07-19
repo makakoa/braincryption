@@ -1,48 +1,111 @@
 @font-face {
-  font-family: 'crypt1';
-  src: url('crypt1.ttf') format("truetype");
-  font-family: 'crypt2';
-  src: url('crypt2.ttf') format("truetype");
+    font-family: 'crypt1';
+    src: url('fonts/crypt1.ttf') format("truetype");
 }
+
+@font-face {
+    font-family: 'crypt2';
+    src: url('fonts/crypt2.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'crypt3';
+    src: url('fonts/crypt3.ttf') format("truetype");
+}
+
 * {
 }
 
-#left {
-  display: inline-block;
-  width: 50%;
-  float: left;
-  box-sizing: border-box;
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-#right {
-  display: inline-block;
-  padding: 20px;
-  width: 50%;
-  float: right;
-  box-sizing: border-box;
+.inverted * {
+    background-color: black;
+    color: white;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+#top {
+    height: 44px;
+    border-bottom: 1px solid #bbbbbb;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+#main {
+    height: calc(100% - 44px);
+}
+
+#logo {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+#intensity {
+    margin-right: 20px;
+}
+
+button {
+    margin-right: 20px;
+}
+
+.half {
+    vertical-align: top;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    margin: 0;
+    padding: 20px;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 #input {
-  height: 200px;
-  width: 100%;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    /* border: 0; */
+
+    font-size: 18px;
+    line-height: 28px;
 }
 
-#text {
-  display: block;
-  margin-left: 50px;
-  width: 600px;
-  height: 300px;
+#braincrypted {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    font-size: 30px;
+    letter-spacing: 1.5px;
 }
 
-#glyphs div {
-  display: inline-block;
-  white-space: nowrap;
-  border: 1px dashed #dbdbdb;
+span {
+    margin: 0;
+    padding: 0;
 }
 
-button, .btn {
-  margin: 10px;
+.one {
+    font-family: 'crypt1';
+}
+
+.two {
+    font-family: 'crypt2';
+}
+
+.three {
+    font-family: 'crypt3';
 }
