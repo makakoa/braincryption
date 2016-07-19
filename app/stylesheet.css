@@ -14,12 +14,32 @@
 }
 
 body {
+    font-family: 'Assistant', 'sans-serif';
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     margin: 0;
     padding: 0;
     position: relative;
+}
+
+* {
+    background-color: white;
+    color: black;
+    transition: 300ms;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
+}
+button:hover {
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+}
+button:focus {
+    outline-width: 0px;
 }
 
 .inverted * {
@@ -33,7 +53,7 @@ body {
 }
 
 #top {
-    height: 44px;
+    height: 50px;
     border-bottom: 1px solid #bbbbbb;
 
     display: flex;
@@ -43,7 +63,7 @@ body {
 }
 
 #main {
-    height: calc(100% - 44px);
+    height: calc(100% - 50px);
 }
 
 #logo {
@@ -72,12 +92,13 @@ button {
 }
 
 #input {
+    font-family: 'Assistant', 'sans-serif';
     resize: none;
     width: 100%;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-    /* border: 0; */
+    border: 1px solid #bbbbbb;
 
     font-size: 18px;
     line-height: 28px;
