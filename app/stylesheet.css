@@ -13,9 +13,6 @@
     src: url('fonts/crypt3.ttf') format("truetype");
 }
 
-* {
-}
-
 body {
     width: 100vw;
     height: 100vh;
@@ -50,7 +47,8 @@ body {
 }
 
 #logo {
-    font-size: 24px;
+    font-size: 32px;
+    letter-spacing: 1.5px;
     margin-right: 20px;
 }
 
