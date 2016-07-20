@@ -30,6 +30,8 @@ body {
 }
 
 button {
+    padding: 4px 8px;
+    margin-right: 20px;
     cursor: pointer;
     border-radius: 4px;
     border: 1px solid #bbbbbb;
@@ -57,9 +59,17 @@ button:focus {
     border-bottom: 1px solid #bbbbbb;
 
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 
     padding: 0 20px;
+}
+#left {
+    display: flex;
+    align-items: center;
+}
+#right {
+    display: flex;
+    align-items: center;
 }
 
 #main {
@@ -76,8 +86,15 @@ button:focus {
     margin-right: 20px;
 }
 
-button {
-    margin-right: 20px;
+#creator-link {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    font-size: 12px;
+    float: right;
+    color: #dddddd;
+}
+#creator-link:hover {
+    color: #00b4ff;
 }
 
 .half {

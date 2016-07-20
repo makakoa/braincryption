@@ -58,8 +58,8 @@ function updateLegend(i) { // i = intensity
     sets.three = '';
   } else {
     sets.one = '';
-    sets.two = alphfreq.slice(0, i%26);
-    sets.three = alphfreq.slice(i%26);
+    sets.two = alphfreq.slice(i%26);
+    sets.three = alphfreq.slice(0, i%26);
   }
   levels.forEach(function(level) {
     sets[level].split('').forEach(function(letter) {
