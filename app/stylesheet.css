@@ -184,7 +184,6 @@ span {
     }
 
     #input-side {
-        padding: 0;
         z-index: 2;
     }
 
@@ -192,6 +191,10 @@ span {
         border: none;
         width: 100vw;
         padding-bottom: 50px;
+    }
+    #braincrypted {
+        box-sizing: border-box;
+        padding: 20px 20px 50px;
     }
 
     #input:focus {
@@ -224,6 +227,7 @@ span {
         left: 0;
         height: calc(100% - 50px);
         width: 100%;
+        padding: 0;
     }
     .closed {
         width: 0;
