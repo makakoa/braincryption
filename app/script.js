@@ -102,3 +102,46 @@ function invertClick() {
   app.className = inverted ? '' : 'inverted';
   inverted = !inverted;
 }
+
+// // Header animation
+// var logo = document.getElementById('logo');
+// var letters = ('braincryption').split('');
+
+// var offset = 0;
+// var levels = ['one', 'two', 'three'];
+
+// var interval = setInterval(function() {
+//   var result = '';
+//   letters.forEach(function(l, i) {
+//     var level = Math.floor((i + offset) / 5 % 3);
+//     result += encryptChunk(l, levels[level]);
+//   });
+//   console.log('animating', result);
+//   logo.innerHTML = result;
+//   offset++;
+// }, 100);
+
+// setTimeout(function() {
+//   clearInterval(interval);
+// }, 4000);
+
+
+// mobile stuff
+var open = document.getElementById('open');
+var close = document.getElementById('close');
+var inputSide = document.getElementById('input-side');
+function toggleInputSide() {
+  inputSide.classList.toggle('closed');
+}
+open.addEventListener('click', toggleInputSide);
+close.addEventListener('click', toggleInputSide);
+
+var menu = document.getElementById('menu');
+var header = document.getElementById('top');
+menu.addEventListener('click', toggleMenu);
+function toggleMenu() {
+  menu.innerText = (menu.innerText === 'Menu')
+    ? 'X'
+    : 'Menu';
+  header.classList.toggle('expanded');
+}

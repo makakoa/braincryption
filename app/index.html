@@ -5,7 +5,7 @@
     <title>braincryption</title>
     <meta name='description' content='braincryption, visual encryption!'>
     <meta name='keywords' content='Braincryption,visual,encryption'>
-
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=device-dpi">
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
     <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet' type='text/css'>
 
@@ -26,20 +26,23 @@
       <div id='top'>
         <div id='left'>
         <span id='logo' class='three'>
-          <span class='one'>Brain</span><span class='two'>cryp</span><span class='three'>tion</span>
+          <span class='one'>brain</span><span class='two'>cryp</span><span class='three'>tion</span>
         </span>
-        <button id='about'>About</button>
+        <button id='about'>Default Text</button>
         <label>Intensity<input type='range' min='0' max='52' step='1' value='0' id='intensity' autocomplete='off'></label>
         <button id='invert'>Invert Colors</button>
         </div><div id='right'>
           <a id='creator-link' href='http://cameron-yee.com'>Creator's Page</a>
         </div>
+        <div id='menu' class='mobile-only'>Menu</div>
       </div>
 
       <div id='main'>
-        <div class='half'>
+        <div class='half' id='input-side'>
           <textarea id='input'></textarea>
+          <div id='close' class='mobile-only switch'>braincrypt</div>
         </div><div class='half'>
+          <div id='open' class='mobile-only switch'>edit</div>
           <div id='braincrypted'></div>
         </div>
       </div>

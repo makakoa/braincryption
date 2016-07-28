@@ -55,6 +55,7 @@ button:focus {
 }
 
 #top {
+    box-sizing: border-box;
     height: 50px;
     border-bottom: 1px solid #bbbbbb;
 
@@ -80,6 +81,7 @@ button:focus {
     font-size: 32px;
     letter-spacing: 1.5px;
     margin-right: 20px;
+    width: 150px;
 }
 
 #intensity {
@@ -145,4 +147,100 @@ span {
 
 .three {
     font-family: 'crypt3';
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 320px) and (-webkit-device-pixel-ratio: 1),
+(max-width: 640px) and (-webkit-device-pixel-ratio: 2),
+(max-device-width: 640px) {
+
+    .mobile-only {
+        display: block;
+    }
+
+    #top {
+        padding: 0 20px 20px;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    #top, #left {
+        flex-shrink: 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    #logo, #about, #top label, #invert {
+        margin: 15px 0;
+    }
+    #menu {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 15px;
+    }
+
+    #input-side {
+        padding: 0;
+        z-index: 2;
+    }
+
+    #input {
+        border: none;
+        width: 100vw;
+        padding-bottom: 50px;
+    }
+
+    #input:focus {
+        outline-width: 0;
+    }
+
+    #close {
+        background-color: #3bdc28;
+        right: 0;
+    }
+    #open {
+        background-color: #00b4ff;
+        left: 0;
+    }
+    .switch {
+        padding: 4px 10px;
+        margin: 5px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #top {
+
+    }
+    .half {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        height: calc(100% - 50px);
+        width: 100%;
+    }
+    .closed {
+        width: 0;
+    }
+    #top.expanded {
+        height: 300px;
+    }
+
+
+    /* #top { */
+    /*     height: inherit; */
+    /*     flex-direction: column; */
+    /*     #left { */
+    /*         flex-direction: column; */
+    /*     } */
+    /*     #right { */
+    /*         flex-direction: column; */
+    /*     } */
+    /* } */
 }
