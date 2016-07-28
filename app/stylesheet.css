@@ -161,6 +161,10 @@ span {
         display: block;
     }
 
+    button {
+        padding: 12px 80px;
+    }
+
     #top {
         padding: 0 20px 20px;
         position: relative;
