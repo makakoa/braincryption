@@ -207,17 +207,21 @@ span {
     }
 
     #close {
-        background-color: #3bdc28;
+        background-color: rgba(59, 220, 40, 0.8);
+        /* color: #3bdc28; */
+        /* border-color: #3bdc28; */
         right: 0;
     }
     #open {
-        background-color: #00b4ff;
+        background-color: rgba(0, 180, 255, 0.8);
+        /* color: #00b4ff; */
+        /* border-color: #00b4ff; */
         left: 0;
     }
     .switch {
         padding: 4px 10px;
         margin: 5px;
-        border: 1px solid gray;
+        /* border: 1px solid; */
         border-radius: 4px;
         position: absolute;
         top: 0;
