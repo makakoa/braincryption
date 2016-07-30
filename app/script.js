@@ -56,10 +56,14 @@ function updateLegend(i) { // i = intensity
     sets.one = alphfreq.slice(i%26);
     sets.two = alphfreq.slice(0, i%26);
     sets.three = '';
-  } else {
+  } else if (i < 52) {
     sets.one = '';
     sets.two = alphfreq.slice(i%26);
     sets.three = alphfreq.slice(0, i%26);
+  } else {
+    sets.one = '';
+    sets.two = '';
+    sets.three = alphfreq.slice(0);
   }
   levels.forEach(function(level) {
     sets[level].split('').forEach(function(letter) {
