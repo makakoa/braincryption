@@ -8,7 +8,7 @@ var braincryptedDiv = document.getElementById('braincrypted');
 
 var text = about;
 inputBox.value = about;
-var intensity = 0;
+var intensity = 15;
 var legend = {};
 
 render();
@@ -83,6 +83,7 @@ function textChange(e) {
 }
 
 var intensitySlider = document.getElementById('intensity');
+intensitySlider.value = intensity;
 intensitySlider.addEventListener('input', intensityChange);
 intensitySlider.addEventListener('change', intensityChange);
 function intensityChange(e) {
