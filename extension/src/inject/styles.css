@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'crypt1';
+    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt1.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'crypt2';
+    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt2.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'crypt3';
+    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt3.ttf') format("truetype");
+}
+
+
+.braincrypt * {
+    font-size: 24px;
+    font-family: crypt3 !important;
+}
