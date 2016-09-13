@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'crypt1';
-    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt1.ttf') format("truetype");
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/crypt1.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'crypt2';
-    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt2.ttf') format("truetype");
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/crypt2.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'crypt3';
-    src: url('chrome-extension://dbkjkokmcaeoegfphlfekppmchdmgjjb/assets/crypt3.ttf') format("truetype");
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/crypt3.ttf') format("truetype");
 }
 
 
